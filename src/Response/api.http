@@ -1,0 +1,107 @@
+
+GET api.openweathermap.org/data/2.5/weather?q=los angeles&appid=967f53b4b8afb38dd07edaab5cf9f971
+
+###
+//addUser
+POST http://localhost:5000/manage/user/add
+Content-Type: application/json
+
+{
+    "username":"test2",
+    "password":"1234",
+    "role_id": "5f74bdccf86b2b0b14113c1b"
+}
+
+
+###
+//Adding Category
+POST http://localhost:5000/manage/category/add
+Content-Type: application/json
+
+{
+    "name": "laptop",
+    "parentId":"0"
+}
+
+###
+//getting category baseon parent ID
+GET http://localhost:5000/manage/category/list?parentId=5f6fd418cfd0a914bccb3ac4
+
+###
+//getting category baseon parent ID
+GET http://localhost:5000/manage/category/list?parentId=0
+
+###
+POST http://localhost:5000/manage/category/update
+Content-Type: application/json
+
+{
+    "categoryId": "5f70ba31b5a6263db833e5b6",
+    "categoryName": "laptop12"
+}
+
+
+###
+POST http://localhost:5000/manage/product/add
+Content-Type: application/json
+
+{
+    "categoryId": "5f70b8154316335db479745b",
+    "pCategoryId": "5f6fd418cfd0a914bccb3ac4", 
+    "name": "HP Omen",
+    "price": 1822,
+    "desc": "HP Omen laptop",
+    "detail": "You can get it at bestbuy"
+}
+
+
+###
+//Get the product list
+GET http://localhost:5000/manage/product/list?pageNum=1&&pageSize=3
+
+### 
+GET http://localhost:5000/manage/product/search?ProductName=test2&&pageSize=3&&pageNum=1
+
+###
+//get the product list by categoryId
+GET http://localhost:5000/manage/category/info?categoryId=5f70b8154316335db479745b
+
+###
+//get Roles
+GET http://localhost:5000/manage/role/list
+
+
+###
+//add ROles
+POST http://localhost:5000/manage/role/add
+Content-Type: application/json
+
+{
+    "roleName": "Manager2"
+}
+
+
+###
+//get User list
+GET http://localhost:5000/manage/user/list
+
+
+###
+POST http://localhost:5000/manage/role/update
+Content-Type: application/json
+
+{
+    "_id": "5f74bdccf86b2b0b14113c1b",
+    "authName": "admin",
+    "menus": "/home",
+    "menus": "/product"
+}
+
+###
+POST http://localhost:5000/manage/user/delete
+Content-Type: application/json
+
+{
+    "_id":"5f74da76dcd9c46b1477b2a9"
+}
+
