@@ -369,7 +369,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
     |parentId      |Y       |string   |parent's category ID
     |categoryName  |Y       |string   |name
 
-### 返回示例：
+### return example：
 
         {
           "status": 0,
